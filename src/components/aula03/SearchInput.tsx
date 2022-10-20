@@ -9,6 +9,6 @@ export interface InputPropsInterface
     ...rest
   }: InputPropsInterface) {
     return (
-        <input {...rest} className={className}/>
+        <input {...rest} type='text' placeholder='Search' className={className}/>
     )
   }

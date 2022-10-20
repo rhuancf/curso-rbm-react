@@ -1,7 +1,9 @@
-import React, { useState,useEffect,ChangeEvent, useRef } from 'react';
-import Button from './components/Button';
-import Input from './components/Input';
-import ResultsUl from './components/ResultsUl';
+import { useState, useEffect} from 'react';
+import Button from '../components/aula03/Button';
+import SeachInput from '../components/aula03/SearchInput';
+import ResultsUl from '../components/aula03/ResultsUl';
+import WikiTitle from '../components/aula03/WikiTitle';
+import './Aula03.css'
 
 type RequestResult = [string, string[], string[], string[]]
 
@@ -24,18 +26,16 @@ function Aula03() {
 
    useEffect(()=>{
     input.length > 2? getWikipediaData() : setResults({} as ResultsParsed);
-
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     },[input])
     
     return (
-        <div style={{display:"flex",flexDirection:"column",alignItems:"center",margin:"20px"}}>
-            <div style={{border:"1px solid black",width:"300px",padding:"20px"}}>
-                <div className="app-wiki">AppWiki</div>
-                <Input type='text' placeholder='Search' onChange={(e)=> setInput(e.target.value)} value={input}/>
+        <div className='container'>
+            <div className='wiki-box'>
+                <WikiTitle/>
+                <SeachInput onChange={(e)=> setInput(e.target.value)} value={input}/>
                 <Button onClick={getWikipediaData}>Search</Button>
-                <div className='list-wrapper2'>
-                    <ResultsUl ulLinks={results.links} ulTopics={results.topics} ulState={input}/>
-                </div>
+                <ResultsUl ulLinks={results.links} ulTopics={results.topics} ulState={input}/>
             </div>
         </div>        
     )
