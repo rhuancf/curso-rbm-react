@@ -1,4 +1,5 @@
 import React, { useState,useEffect,ChangeEvent, useRef } from 'react';
+import Nav from '../components/Nav';
 import './AppChurrasco.css';
 
 function AppChurrasco() {
@@ -49,6 +50,7 @@ function AppChurrasco() {
   
     return (
       <div className='container'>
+        <Nav/>
         <label>Numero de adultos</label>
         <input type="number" onChange={(e)=>handleInput(e, 'input1')} value={input.input1} ref={input1Ref} />
         <label>Numero de crianças</label>

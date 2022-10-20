@@ -1,5 +1,5 @@
 import React, { useState,useEffect,ChangeEvent, EventHandler } from 'react';
-import './App.css';
+import Nav from '../components/Nav';
 
 function App() {
   const [numero, setNumero] = useState(0);
@@ -30,14 +30,15 @@ function App() {
 
   return (
     <div className="App">
-      <header className="App-header">
-        <div style={{ gap:'20px', display:'flex', alignSelf:'center' }} className="teste">
+      <div style={{display:"flex",flexDirection:"column",alignItems:"center",justifyContent:"center",margin:"20px"}}>
+      <Nav/>
+        <div style={{display:"flex",justifyContent:"center", width:"auto", margin:"20px"}}>
           <input onKeyDown={(e)=> testeKeydown(e)} onChange={(e)=> setNumero(parseInt(e.target.value))} type="number"></input>
           <button onClick={() => checkNumber()}>Chutar</button>
+        </div>
           <label>Tentativas: {tentativas}</label>
         </div>
-      </header>
-    </div>
+      </div>
   );
 }
 
